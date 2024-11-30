@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archives</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+        header, footer {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #videoSection {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        iframe {
+            border: none;
+        }
+
+        /* Style pour le carrousel */
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .carousel-items {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            text-align: center;
+        }
+
+        .carousel-item img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-controls button:hover {
+            background: rgba(255, 255, 255, 0.7);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>S4D 3ND C0M3 Archives</h1>
+    </header>
+
+    <section id="videoSection">
+        <p>Old vids of S4D 3ND C0M3</p>
+        <iframe 
+            width="600" 
+            height="400" 
+            src="https://www.youtube.com/embed/61QJ1hOaDGE?autoplay=1" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <p><strong>Russian Pornstar</strong></p>
+    </section>
+
+    <!-- Carrousel -->
+    <section id="carouselSection">
+        <h2>Find us on :</h2>
+        <div class="carousel">
+            <div class="carousel-items">
+                <!-- Item 1 -->
+                <div class="carousel-item">
+                    <a href="https://open.spotify.com/intl-fr/artist/6Y1CPUyXzjahC5Q0Pj68Un" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                    </a>
+                </div>
+                <!-- Item 2 -->
+                <div class="carousel-item">
+                    <a href="https://soundcloud.com/s4d3ndc0m3-420308036" target="_blank">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_UY_Bf7R7ryzBfGrhje4Q2C6O5PQ6PtSeQ&s" alt="SoundCloud">
+                    </a>
+                </div>
+                <!-- Item 3 -->
+                <div class="carousel-item">
+                    <a href="https://www.youtube.com/@Ve1ka7-11" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-controls">
+                <button id="prevBtn">&lt;</button>
+                <button id="nextBtn">&gt;</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript pour le carrousel
+        const carouselItems = document.querySelector('.carousel-items');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+            carouselItems.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : 2; // 2 = nombre d'items - 1
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < 2) ? currentIndex + 1 : 0; // 0 pour revenir au début
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel); // Mise à jour si la taille de l'écran change
+    </script>
+</body>
+</html>
