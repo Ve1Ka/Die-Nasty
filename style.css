@@ -1,0 +1,392 @@
+/* Effet de glitch sur le texte */
+.glitch-text {
+    position: relative;
+    font-size: 4rem;
+    color: darkred;
+    animation: glitch 1s infinite;
+    font-family: monospace;
+    letter-spacing: 5px;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 1px 1px 2px darkred, -1px -1px 2px red; }
+    50% { text-shadow: -1px -1px 2px darkred, 1px 1px 2px red; }
+    100% { text-shadow: 1px 1px 2px darkred, -1px -1px 2px red; }
+}
+
+.warning {
+    font-family: monospace;
+    letter-spacing: 3px; 
+    margin-bottom: 20px; 
+}
+
+/* Bouton rebondissant */
+.bouncy-button {
+    font-family: monospace;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff66cc;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {transform: translateY(0);}
+    40%, 43% {transform: translateY(-30px);}
+    70% {transform: translateY(-15px);}
+    90% {transform: translateY(-4px);}
+}
+
+.ascii-art {
+    font-family: monospace;
+    font-size: 15px; 
+    color: #ff3366; 
+    white-space: pre; 
+}
+
+/* Animation cycle de couleur pour le ASCII et warning */
+.animated-color-cycle {
+    animation: colorCycle 3s infinite;
+}
+
+@keyframes colorCycle {
+    0% {color: #ff3366;}
+    25% {color: #ff66cc;}
+    50% {color: #33ffcc;}
+    75% {color: #ffff66;}
+    100% {color: #ff3366;}
+}
+
+/* Arrière-plan confettis */
+.confetti {
+    position: fixed;
+    top: -10px;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #ff3366 0%, #ff66cc 100%);
+    border-radius: 50%;
+    animation: confetti-fall 5s linear infinite;
+    opacity: 0.7;
+}
+
+.confetti:nth-child(2) {
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.confetti:nth-child(3) {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.confetti:nth-child(4) {
+    left: 10%;
+    animation-delay: 3s;
+}
+
+.confetti:nth-child(5) {
+    left: 90%;
+    animation-delay: 4s;
+}
+
+.confetti:nth-child(6) {
+    left: 30%;
+    animation-delay: 0.5s;
+}
+
+.confetti:nth-child(7) {
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+.confetti:nth-child(8) {
+    left: 40%;
+    animation-delay: 2.5s;
+}
+
+@keyframes confetti-fall {
+    0% { top: -10px; transform: translateX(0) rotate(0deg);}
+    100% { top: 110%; transform: translateX(50px) rotate(360deg); }
+}
+
+/* Mise en page globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+    background-color: #111; 
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* En-tête */
+header {
+    background-color: #ff3366; 
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+header p {
+    color: white;
+    font-style: italic;
+}
+
+/* Effet flash sur le header du blog */
+.animated-flash-header {
+    animation: flashHeader 2s infinite;
+}
+
+@keyframes flashHeader {
+    0%, 100% { background-color: #ff3366; }
+    50% { background-color: #ff66cc; }
+}
+
+/* Post du blog */
+.post {
+    background-color: white; 
+    border: 2px solid #ff66cc; 
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post h2 {
+    font-size: 2rem;
+    color: #ff3366;
+}
+
+.post .content {
+    font-size: 1.2rem;
+    color: black; 
+}
+
+.post .content a {
+    color: #ff3366;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.post .content a:hover {
+    color: #ff66cc;
+    text-decoration: underline;
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.img-post {
+    max-width: 100%;
+    border: 5px solid #ff66cc;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Animation zoom sur images */
+.animated-zoom {
+    transition: transform 0.5s;
+}
+
+.animated-zoom:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Section des commentaires */
+#comments {
+    margin-top: 30px;
+}
+
+.comment {
+    background-color: white;
+    border-left: 5px solid #ff3366;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: black;
+}
+
+.comment strong {
+    color: #ff3366;
+}
+
+/* Section des liens */
+#links {
+    background-color: #ff66cc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#links a:hover {
+    color: #fffbcc;
+    text-decoration: underline;
+    transform: scale(1.1) rotate(-3deg);
+}
+
+#links ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+#links ul li {
+    margin: 10px 0;
+}
+
+/* Footer (non utilisé ici, mais laissé au cas où) */
+footer {
+    background-color: #ff66cc;
+    padding: 10px;
+    color: white;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Boutons standards */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #444;
+    color: white;
+    border: 2px solid #222;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Effet wiggle sur titres */
+.animated-wiggle {
+    display: inline-block;
+    animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(3deg);}
+    50% {transform: rotate(-3deg);}
+    75% {transform: rotate(3deg);}
+    100% {transform: rotate(0deg);}
+}
+
+/* Dégradé pour l'arrière-plan des sections */
+#blogPost, #comments, #links {
+    background: linear-gradient(45deg, #ff66cc, #ff3366);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .post h2 {
+        font-size: 1.8rem;
+    }
+
+    .post .content {
+        font-size: 1.1rem;
+    }
+
+    .img-post {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    footer {
+        font-size: 0.7rem;
+        position: relative;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .post h2 {
+        font-size: 1.5rem;
+    }
+
+    .post .content {
+        font-size: 1rem;
+    }
+
+    .post .content a {
+        font-size: 1.1rem;
+    }
+
+    .img-post {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    footer {
+        font-size: 0.6rem;
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .post h2 {
+        font-size: 1.3rem;
+    }
+
+    .post .content {
+        font-size: 0.9rem;
+    }
+
+    .img-post {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    footer {
+        font-size: 0.5rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
